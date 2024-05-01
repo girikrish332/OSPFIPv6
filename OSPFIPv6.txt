@@ -1,0 +1,99 @@
+R1
+
+en
+conf t
+
+ipv6 unicast-routing
+ipv6 router ospf 10
+router-id 1.1.1.1
+ex
+
+int e0/0
+ipv6 en
+ipv6 add 2001::10/64
+no sh
+ipv6 ospf 10 area 1
+ex
+
+int e0/1
+ipv6 en
+ipv6 add 2004::20/64
+no sh
+ipv6 ospf 10 area 1
+ex
+
+
+R2
+
+en
+conf t
+
+ipv6 unicast-routing
+ipv6 router ospf 10
+router-id 2.2.2.2
+ex
+
+int e0/0
+ipv6 en
+ipv6 add 2001::20/64
+no sh
+ipv6 ospf 10 area 1
+ex
+
+int e0/1
+ipv6 en
+ipv6 add 2002::10/64
+no sh
+ipv6 ospf 10 area 1
+ex
+
+
+R3
+
+en
+conf t
+
+ipv6 unicast-routing
+ipv6 router ospf 10
+router-id 3.3.3.3
+ex
+
+int e0/0
+ipv6 en
+ipv6 add 2003::10/64
+no sh
+ipv6 ospf 10 area 1
+ex
+
+int e0/1
+ipv6 en
+ipv6 add 2002::20/64
+no sh
+ipv6 ospf 10 area 1
+ex
+
+
+R4
+
+en
+conf t
+
+ipv6 unicast-routing
+ipv6 router ospf 10
+router-id 4.4.4.4
+ex
+
+int e0/0
+ipv6 en
+ipv6 add 2004::10/64
+no sh
+ipv6 ospf 10 area 1
+ex
+
+int e0/1
+ipv6 en
+ipv6 add 2003::20/64
+no sh
+ipv6 ospf 10 area 1
+ex
+
